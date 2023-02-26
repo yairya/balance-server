@@ -1,5 +1,3 @@
-import mongoose from "cmongoose";
-
 export const usersCollectionName = "Users";
 
 export const userSchema = new mongoose.Schema({

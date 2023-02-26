@@ -4,12 +4,12 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 
 import * as GeneralController from "./controllers/GeneralController.js"
+import * as LoginController from "./controllers/LoginController.js"
 
-const apiBase = "/api";
 dotenv.config();
 const {USER, PASS, DB_HOST, DB_NAME, PORT} = process.env;
 
-//init the server
+//init the web server
 const app = express();
 
 //middleware that server need
@@ -17,7 +17,8 @@ app.use(express.json());
 app.use(cors());
 
 //Routes
-app.get(apiBase+"/alive", GeneralController.isAlive);
+app.get("/api/alive", GeneralController.isAlive);
+app.get("/api/login/users", LoginController.getAllUsers);
 
 
 //DB connection and server listner

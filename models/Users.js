@@ -1,38 +1,40 @@
+import mongoose from "mongoose";
+
 export const usersCollectionName = "Users";
 
 export const userSchema = new mongoose.Schema({
     email: {
         type: String,
         trim: true,
-        require: true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
         trim: true,
-        require: true
+        required: true
     },
     firstName:{
         type: String,
         trim: true,
-        require: true
+        required: true
     },
     lastName:{
         type: String,
         trim: true,
-        require: true
+        required: true
     },
     phoneNamber:{
-        type: Nubmer,
-        require: true
+        type: String,
+        required: true
     },
     gender:{
         type: String,
-        require: true
+        required: true
     },
     age:{
-        type: Nubmer,
-        require: true,
+        type: Number,
+        required: true,
         min: 18,
         max: 120
     },

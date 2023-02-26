@@ -19,6 +19,7 @@ app.use(cors());
 //Routes
 app.get("/api/alive", GeneralController.isAlive);
 app.get("/api/login/users", LoginController.getAllUsers);
+app.post("/api/login/create", LoginController.createUser);
 
 
 //DB connection and server listner

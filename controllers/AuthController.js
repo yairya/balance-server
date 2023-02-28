@@ -36,3 +36,26 @@ export const createUser = async(req,res) => {
         res.status(400).send(err);
     }
 };
+
+//-------------------------------------------------------------------------
+export const login = async(req,res) => {
+    console.log("create new  user req camming");
+    console.log(req.body);
+    try{
+        console.log("searching after user according email");
+        const user = await UsersService.getUserByEmail(req.body.email);
+        if(user != null)
+        {
+            if(user.password === req.body.password)
+            {
+                res.status(200).send({msg: "login"});
+            }
+        }
+
+        res.status(403).send({msg: `invalid mail or password`});
+    }
+    catch(err){
+        console.log(err);
+        res.status(400).send(err);
+    }
+};

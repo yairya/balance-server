@@ -18,9 +18,9 @@ app.use(cors());
 
 //Routes
 app.get("/api/alive", GeneralController.isAlive);
-app.get("/api/login/users", AuthController.getAllUsers);
-app.post("/api/login/create", AuthController.createUser);
-app.post("/api/login/create", AuthController.createUser);
+app.get("/api/auth/users", AuthController.getAllUsers);
+app.post("/api/auth/create", AuthController.createUser);
+app.post("/api/auth/login", AuthController.login);
 
 //DB connection and server listner
 mongoose.set('strictQuery', true);

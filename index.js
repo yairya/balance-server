@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 
 import * as GeneralController from "./controllers/GeneralController.js"
-import * as LoginController from "./controllers/LoginController.js"
+import * as AuthController from "./controllers/AuthController.js"
 
 dotenv.config();
 const {USER, PASS, DB_HOST, DB_NAME, PORT} = process.env;
@@ -18,9 +18,9 @@ app.use(cors());
 
 //Routes
 app.get("/api/alive", GeneralController.isAlive);
-app.get("/api/login/users", LoginController.getAllUsers);
-app.post("/api/login/create", LoginController.createUser);
-
+app.get("/api/login/users", AuthController.getAllUsers);
+app.post("/api/login/create", AuthController.createUser);
+app.post("/api/login/create", AuthController.createUser);
 
 //DB connection and server listner
 mongoose.set('strictQuery', true);

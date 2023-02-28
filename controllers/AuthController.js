@@ -1,3 +1,7 @@
+/*
+authentication controller
+*/
+
 import * as UsersService from "../services/Users.js"
 
 
@@ -15,7 +19,7 @@ export const getAllUsers = async(req,res) => {
 
 //-------------------------------------------------------------------------
 export const createUser = async(req,res) => {
-    console.log("create new user req camming");
+    console.log("create new  user req camming");
     console.log(req.body);
     try{
         console.log("searching after user according email");

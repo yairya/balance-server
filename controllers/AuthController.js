@@ -39,6 +39,8 @@ export const createUser = async(req,res) => {
 
 //-------------------------------------------------------------------------
 export const login = async(req,res) => {
+    
+    let status = false;
     console.log("create new  user req camming");
     console.log(req.body);
     try{
@@ -49,10 +51,14 @@ export const login = async(req,res) => {
             if(user.password === req.body.password)
             {
                 res.status(200).send({msg: "login"});
+                status = true;
             }
         }
 
-        res.status(403).send({msg: `invalid mail or password`});
+        if(status === false)
+        {
+            res.status(403).send({msg: `invalid mail or password`});
+        }
     }
     catch(err){
         console.log(err);
